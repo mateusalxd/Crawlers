@@ -483,3 +483,25 @@ Code | Description
 8|Tablets
 57|Telephony
 247|Watches
+
+##### Get brand and category in the browser
+
+```
+var elements = document.querySelectorAll('ul.filtro[data-filter-name="marca"] li a input')
+var output = ''
+for (i = 0; i < elements.length; i++) {
+    output += elements[i].getAttribute('value');
+    output += '|';
+    output += elements[i].parentElement.querySelector('span').textContent
+    output += '\n';
+}
+
+var elements = document.querySelectorAll('ul.filtro[data-filter-name="categoria"] li a input')
+var output = ''
+for (i = 0; i < elements.length; i++) {
+    output += elements[i].getAttribute('value');
+    output += '|';
+    output += elements[i].parentElement.querySelector('span').textContent
+    output += '\n';
+}
+```
