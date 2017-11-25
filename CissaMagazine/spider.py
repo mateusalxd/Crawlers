@@ -19,11 +19,17 @@ class CissaMagazineSpider(Spider):
 
     def start_requests(self):
         url = 'https://www.cissamagazine.com.br/'
+        brand = getattr(self, 'brand', None)
+        category = getattr(self, 'category', None)
         search = getattr(self, 'search', None)
         start = getattr(self, 'start', None)
 
         if search is not None:
             url = url + 'busca?q=' + search
+            if brand is not None:
+                url = url + '&marca=' + brand
+            if category is not None:
+                url = url + '&categoria=' + category
             if start is not None:
                 url = url + '&p=' + start
 
